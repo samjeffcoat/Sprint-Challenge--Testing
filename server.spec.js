@@ -20,18 +20,28 @@ describe('games', () => {
             .then(res => expect(res.body.length).toBeGreaterThan(0))
             .catch();
         })
-
+    })
+//2019 in title?
         it('Check to see if a game was made in 2019', () => {
             return request(server)
             .get('/games')
         .then(res => expect(res).stringMatching(/2019/))
         .catch();
-
-
+    })
+//Post endpoint
+describe('post', ()=> {
+    it('should return 201 on post', () => {
+        return request(server)
+        .post('/games')
+        .send({ name: 'FIFA 2019'})
+        .then(res => {
+            expect(res.status).toBe(201)
+        })
 
     })
 
 
+})
 
 
 
