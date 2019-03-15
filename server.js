@@ -45,5 +45,8 @@ server.get('/', (req, res)=> {
     res.send('Your site is working!')
 })
 
+server.get('/games', (req, res)=> {
+    res.json(games);
+})
 
 module.exports=server;
