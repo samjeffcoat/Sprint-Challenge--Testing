@@ -1,3 +1,7 @@
+const express= require('express');
+const server= express();
+server.use(express.json())
+
 const games = [
     {
         id: 0,
@@ -36,3 +40,10 @@ const games = [
         releaseYear: 2019
     },
 ];
+
+server.get('/', (req, res)=> {
+    res.send('Your site is working!')
+})
+
+
+module.exports=server;
