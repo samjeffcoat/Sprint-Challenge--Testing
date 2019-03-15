@@ -14,6 +14,12 @@ describe('games', () => {
             .get('/games')
             .then(res=> expect(res.status).toBe(200))
         })
+        it('should check if get all of our games returns an array', () => {
+            return request(server)
+            .get('/games')
+            .then(res => expect(res.body.length).toBeGreaterThan(0))
+            .catch();
+        })
 
 
 
