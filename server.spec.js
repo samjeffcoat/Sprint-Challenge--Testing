@@ -44,7 +44,14 @@ describe('post', ()=> {
         .send()
         .then(res=> expect(res.status).toBe(422))
     })
-    it('')
+    it('Should return our latest posted game', ()=> {
+        return request(server)
+        .post('/games')
+        .send({title: 'Super Smash Brothers'})
+        .then(res => {
+            expect(res.body[res.body.length-1].name.toBe('Super Smash Brothers'))
+        })
+    })
 
 })
 
