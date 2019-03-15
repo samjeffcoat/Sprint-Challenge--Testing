@@ -9,6 +9,7 @@ describe('games', () => {
             .then(res => expect(res.status).toBe(200))
             .catch();
         })
+
         it('should get all games with status 200', () => {
             return request(server)
             .get('/games')
@@ -20,6 +21,23 @@ describe('games', () => {
             .then(res => expect(res.body.length).toBeGreaterThan(0))
             .catch();
         })
+
+        it('should return and array of games', async   () =>{
+            const title= "Super Mario";
+            const genre=  "Nintendo";
+            const releaseYear= 1982;
+
+           const response = await request(server)
+           .post("/games")
+           .send({title, genre, releaseYear});
+           const getArray= await request(server).get('/games')
+            expect(Array.isArray(getArray.body)).toBe(true);
+
+        })
+
+
+
+
     })
 //2019 in title?
         it('Check to see if a game was made in 2019', () => {

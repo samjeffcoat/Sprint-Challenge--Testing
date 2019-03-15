@@ -52,7 +52,7 @@ server.get('/games', (req, res)=> {
 server.post('/games', (req, res)=> {
     const {title, genre, releaseYear} =req.body;
     const newGame = {title, genre, releaseYear};
-    if(!title){
+    if(!title, !genre){
         res.status(422).json({message: "You must have a title!"})
     }
     games.push(newGame)
