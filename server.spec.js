@@ -21,6 +21,12 @@ describe('games', () => {
             .catch();
         })
 
+        it('Check to see if a game was made in 2019', () => {
+            return request(server)
+            .get('/games')
+        .then(res => expect(res).stringMatching(/2019/))
+        .catch();
+
 
 
     })
