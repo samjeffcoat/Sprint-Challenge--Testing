@@ -37,7 +37,12 @@ describe('post', ()=> {
         .then(res => {
             expect(res.status).toBe(201)
         })
-
+    })
+    it('should return 422 if the body is not provided', () => {
+        return request(server)
+        .post('/games')
+        .send()
+        .then(res=> expect(res.status).toBe(422))
     })
 
 
