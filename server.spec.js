@@ -33,7 +33,7 @@ describe('post', ()=> {
     it('should return 201 on post', () => {
         return request(server)
         .post('/games')
-        .send({ name: 'FIFA 2019'})
+        .send({ title:  'FIFA 2017', genre: 'Sports', releaseYear: 2017})
         .then(res => {
             expect(res.status).toBe(201)
         })
@@ -44,7 +44,7 @@ describe('post', ()=> {
         .send()
         .then(res=> expect(res.status).toBe(422))
     })
-
+    it('')
 
 })
 
