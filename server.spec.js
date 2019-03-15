@@ -52,12 +52,5 @@ describe('post', ()=> {
             expect(res.body[res.body.length-1].name.toBe('Super Smash Brothers'))
         })
     })
-
 })
-
-
-
-
-
-
 })

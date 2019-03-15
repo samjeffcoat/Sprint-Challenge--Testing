@@ -49,4 +49,13 @@ server.get('/games', (req, res)=> {
     res.json(games);
 })
 
+server.post('/games', (req, res)=> {
+    const {title} =req.body;
+    const newGame = {title};
+    if(!title){
+        res.status(422).json({message: "You must have a title!"})
+    }
+    games.push(newGame)
+    res.status(201).json(games);
+})
 module.exports=server;
